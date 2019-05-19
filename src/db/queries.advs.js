@@ -4,7 +4,7 @@ module.exports = {
 
 //#1
   getAllAdvs(callback){
-    return Advs.all()
+    return Advs.findAll()
 
 //#2
     .then((Advs) => {
@@ -25,7 +25,7 @@ module.exports = {
      })
    },
 
-  addAds(newAdvs, callback){
+  addAdvs(newAdvs, callback){
       return Advs.create({
         title: newAdvs.title,
         description: newAdvs.description
@@ -52,17 +52,17 @@ module.exports = {
 
   updateAdvs(id, updatedAdvs, callback){
      return Advs.findById(id)
-     .then((advs) => {
-       if(!advs){
+     .then((adv) => {
+       if(!adv){
          return callback("Ads not found");
        }
 
 //#1
-       Advs.update(updatedAdvs, {
+       adv.update(updatedAdvs, {
          fields: Object.keys(updatedAdvs)
        })
        .then(() => {
-         callback(null, advs);
+         callback(null, adv);
        })
        .catch((err) => {
          callback(err);

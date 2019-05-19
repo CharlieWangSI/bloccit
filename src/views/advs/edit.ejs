@@ -11,16 +11,16 @@
 <h1>Edit Advs</h1>
 
 <!-- #1 -->
-<form action="/advs/<%= advs.id %>/update" method="post">
+<form action="/advs/<%= adv.id %>/update" method="post">
 <div class="form-group">
 <label for="title">Advs title</label>
 <!-- #2 -->
-<input value="<%= Advs.title %>" type="text" class="form-control" name="title" aria-describedby="titleHelp" placeholder="Enter Title">
+<input value="<%= adv.title %>" type="text" class="form-control" name="title" aria-describedby="titleHelp" placeholder="Enter Title">
 </div>
 <div class="form-group">
 <label for="description">Advs Description</label>
 <!-- #3 -->
-<textarea rows="4" class="form-control" name="description" placeholder="Enter Description"><%= advs.description %></textarea>
+<textarea rows="4" class="form-control" name="description" placeholder="Enter Description"><%= adv.description %></textarea>
 </div>
 <button type="submit" class="btn btn-primary">Update</button>
 </form>

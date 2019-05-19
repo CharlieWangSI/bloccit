@@ -30,15 +30,6 @@ module.exports = {
           key: "id",
           as: "topicId",
         }
-      },
-      advsId: {
-        type: Sequelize.INTEGER,
-        onDelete: "CASCADE",
-        references: {
-          model: "Advs",
-          key: "id",
-          as: "advsId",
-        }
       }
     });
   },

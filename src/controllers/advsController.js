@@ -2,13 +2,15 @@ const advsQueries = require("../db/queries.advs.js");
 
 module.exports = {
   index(req, res, next){
-    adsQueries.getAllAdvs((err, advs) => {
+    advsQueries.getAllAdvs((err, advs) => {
 
 //#3
         if(err){
+
           res.redirect(500, "static/index");
         } else {
-          res.render("advs/index", {Advs});
+          console.log(advs);
+          res.render("advs/index", {advs});
         }
       })
   },
@@ -37,7 +39,7 @@ module.exports = {
      advsQueries.getAdvs(req.params.id, (err, advs) => {
 
 //#2
-       if(err || Advs == null){
+       if(err || advs == null){
          res.redirect(404, "/");
        } else {
          res.render("advs/show", {advs});
@@ -56,11 +58,11 @@ module.exports = {
    },
 
    edit(req, res, next){
-     advsQueries.getAdvs(req.params.id, (err, advs) => {
-       if(err || advs == null){
+     advsQueries.getAdvs(req.params.id, (err, adv) => {
+       if(err || adv == null){
          res.redirect(404, "/");
        } else {
-         res.render("advs/edit", {advs});
+         res.render("advs/edit", {adv});
        }
      });
    },
@@ -68,13 +70,14 @@ module.exports = {
    update(req, res, next){
 
 //#1
-     advsQueries.updateAdvs(req.params.id, req.body, (err,advs) => {
+     advsQueries.updateAdvs(req.params.id, req.body, (err,adv) => {
 
 //#2
-       if(err || advs == null){
+       if(err || adv == null){
          res.redirect(404, `/advs/${req.params.id}/edit`);
        } else {
-         res.redirect(`/advs/${advs.id}`);
+         res.redirect(`/advs/${adv.id}`);
        }
      });
    }
+ }
