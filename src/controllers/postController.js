@@ -4,7 +4,8 @@ module.exports = {
 
   new(req, res, next){
      res.render("posts/new", {topicId: req.params.topicId});
-   }
+   },
+
    create(req, res, next){
      let newPost= {
        title: req.body.title,
@@ -18,7 +19,7 @@ module.exports = {
          res.redirect(303, `/topics/${newPost.topicId}/posts/${post.id}`);
        }
      });
-   }
+   },
 
    show(req, res, next){
      postQueries.getPost(req.params.id, (err, post) => {
@@ -28,7 +29,7 @@ module.exports = {
          res.render("posts/show", {post});
        }
      });
-   }
+   },
 
    destroy(req, res, next){
      postQueries.deletePost(req.params.id, (err, deletedRecordsCount) => {
@@ -38,7 +39,7 @@ module.exports = {
          res.redirect(303, `/topics/${req.params.topicId}`)
        }
      });
-   }
+   },
 
    edit(req, res, next){
      postQueries.getPost(req.params.id, (err, post) => {
@@ -48,7 +49,7 @@ module.exports = {
          res.render("posts/edit", {post});
        }
      });
-   }
+   },
 
    update(req, res, next){
      postQueries.updatePost(req.params.id, req.body, (err, post) => {
