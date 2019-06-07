@@ -11,7 +11,7 @@ module.exports = {
         callback(err);
       })
 
-    };
+    },
 
   getPost(id, callback){
       return Post.findById(id)
@@ -21,7 +21,7 @@ module.exports = {
       .catch((err) => {
         callback(err);
       })
-    };
+    },
 
   deletePost(id, callback){
        return Post.destroy({
@@ -33,7 +33,7 @@ module.exports = {
         .catch((err) => {
          callback(err);
         })
-  };
+  },
 
   updatePost(id, updatedPost, callback){
      return Post.findById(id)
