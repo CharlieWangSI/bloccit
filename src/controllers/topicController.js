@@ -19,6 +19,7 @@ module.exports = {
   },
 
   create(req, res, next){
+    console.log(req.body);
      let newTopic = {
        title: req.body.title,
        description: req.body.description

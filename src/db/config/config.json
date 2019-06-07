@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "charliewang",
-    "password": "cracksat2400",
+    "username": "postgres",
+    "password": null,
     "database": "bloccit-dev",
     "host": "127.0.0.1",
     "dialect": "postgres",
@@ -9,8 +9,8 @@
     "operatorsAliases": false
   },
   "test": {
-    "username": "charliewang",
-    "password": "cracksat2400",
+    "username": "postgres",
+    "password": null,
     "database": "bloccit-test",
     "host": "127.0.0.1",
     "dialect": "postgres",
@@ -18,8 +18,8 @@
     "operatorsAliases": false
   },
   "production": {
-    "username": "charliewang",
-    "password": "cracksat2400",
+    "username": "postgres",
+    "password": "null",
     "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql"
