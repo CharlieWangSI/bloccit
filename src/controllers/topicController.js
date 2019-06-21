@@ -6,7 +6,7 @@ module.exports = {
 
 //#3
         if(err){
-          console.log("ERROR:", err);
+
 
           res.redirect(500, "static/index");
         } else {
@@ -34,12 +34,14 @@ module.exports = {
    },
 
    show(req, res, next){
+     console.log("showing topic");
 
 //#1
     topicQueries.getTopic(req.params.id, (err, topic) => {
 
 //#2
       if(err || topic == null){
+        console.log("ERROR:", err);
         res.redirect(404, "/");
       } else {
         res.render("topics/show", {topic});

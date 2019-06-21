@@ -1,6 +1,7 @@
 const Topic = require("./models").Topic;
 const Post = require("./models").Post;
 
+
 module.exports = {
 
 //#1
@@ -17,7 +18,7 @@ module.exports = {
   },
 
   getTopic(id, callback){
-     return Topic.findById(id)
+     // return Topic.findById(id)
      return Topic.findById(id, {
 
 //#3

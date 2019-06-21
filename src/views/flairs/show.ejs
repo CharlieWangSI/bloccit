@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<% include ../static/partials/head.ejs %>
+</head>
+<body>
+<% include ../static/partials/navbar.ejs %>
+
+<main class="container">
+<h1><%= flair.name %></h1>
+<form style="display:initial" action="/topics/<%= flair.topicId %>/posts/<%= post.postId %>/flairs/<%= flair.flairId %>/destroy" method="post">
+<button type="submit" class="btn btn-danger">Delete</button>
+</form>
+<a href="/topics/<%= flair.topicId %>/posts/<%= flair.postId %>/flairs/<%= flair.flairId %>/edit" class="btn btn-warning">Edit</a>
+
+
+<p><%= flair.color %></p>
+</main>
+
+<% include ../static/partials/baseScripts.ejs %>
+
+</body>
+</html>

@@ -14,7 +14,14 @@ module.exports = {
     },
 
   getPost(id, callback){
-      return Post.findById(id)
+      return Post.findById(id, {
+
+//#3
+      include: [{
+        model: Flair,
+        as: "flair"
+      }]
+    })
       .then((post) => {
         callback(null, post);
       })
@@ -24,13 +31,17 @@ module.exports = {
     },
 
   deletePost(id, callback){
+    console.log("deleting post");
+    console.log(id);
        return Post.destroy({
           where: { id }
         })
         .then((deletedRecordsCount) => {
+          console.log("deletePost")
          callback(null, deletedRecordsCount);
         })
         .catch((err) => {
+          console.log("err");
          callback(err);
         })
   },
