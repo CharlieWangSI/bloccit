@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const flair = sequelize.define('Flair', {
+  const Flair = sequelize.define('Flair', {
     name: {
        type: DataTypes.STRING,
        allowNull: false
@@ -9,20 +9,12 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
       },
-      topicId: {
-       type: DataTypes.INTEGER,
-       allowNull: false
-     },
      postId: {
-       type: DataTypes.INTEGER,
-       allowNull: false
-     },
-     flairId: {
        type: DataTypes.INTEGER,
        allowNull: false
      }
   }, {});
-  flair.associate = function(models) {
+  Flair.associate = function(models) {
     // associations can be defined here
 
     Flair.belongsTo(models.Post, {
@@ -30,5 +22,5 @@ module.exports = (sequelize, DataTypes) => {
        onDelete: "CASCADE"
      });
   };
-  return flair;
+  return Flair;
 };

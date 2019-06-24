@@ -68,7 +68,7 @@ describe("routes : flairs", () => {
           .then((flair) => {
             expect(flair).not.toBeNull();
             expect(flair.color).toBe("red");
-            expect(flair.flairId).not.toBeNull();
+            expect(flair.id).not.toBeNull();
             done();
           })
           .catch((err) => {
@@ -84,7 +84,7 @@ describe("routes : flairs", () => {
  describe("GET /topics/:topicId/posts/:postId/flairs/:flairId", () => {
 
      it("should render a view with the selected flair", (done) => {
-       request.get(`${base}/${this.topic.id}/posts/${this.post.id}/flairs/${this.flair.flairId}`, (err, res, color) => {
+       request.get(`${base}/${this.topic.id}/posts/${this.post.id}/flairs/${this.flair.id}`, (err, res, color) => {
          expect(err).toBeNull();
          expect(color).toContain("red");
          done();
@@ -98,9 +98,9 @@ describe("routes : flairs", () => {
      it("should delete the flair with the associated flairId", (done) => {
 
 //#1
-       expect(flair.flairId).toBe(1);
+       expect(flair.id).toBe(1);
 
-       request.post(`${base}/${this.topic.id}/posts/${this.post.id}/flairs/${this.flair.flairId}/destroy`, (err, res, color) => {
+       request.post(`${base}/${this.topic.id}/posts/${this.post.id}/flairs/${this.flair.id}/destroy`, (err, res, color) => {
 
 //#2
          Flair.findById(1)
@@ -115,7 +115,7 @@ describe("routes : flairs", () => {
 
    });
 
-   describe("GET /topics/:topicId/posts/:postId/flairs/:flairId/edit", () => {
+   describe("GET /topics/:topicId/posts/:postId/flairs/:id/edit", () => {
 
      it("should render a view with an edit flair form", (done) => {
        request.get(`${base}/${this.topic.id}/posts/${this.post.id}/flairs/${this.flair.id}/edit`, (err, res, color) => {
@@ -128,7 +128,7 @@ describe("routes : flairs", () => {
 
    });
 
-   describe("POST /topics/:topicId/posts/:postId/flairs/:flairId/update", () => {
+   describe("POST /topics/:topicId/posts/:postId/flairs/:id/update", () => {
 
      it("should return a status code 302", (done) => {
        request.post({

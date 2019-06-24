@@ -8,10 +8,12 @@
 
 <main class="container">
 <h1><%= post.title %></h1>
-<h2><%= flair.name %></h2>
+<% post.flairs.forEach((flair)=> { %>
+<h2><%=flair.name%></h2>
+<%})%>
 
 <a href="/topics/<%= post.topicId %>/posts/<%= post.id %>/edit" class="btn btn-warning">Edit</a>
-<a href="/topics/<%= topic.id %>/posts/<%= post.id %>/flairs/new" class="btn btn-success">New Flair</a>
+<a href="/topics/<%= post.topicId %>/posts/<%= post.id %>/flairs/new" class="btn btn-success">New Flair</a>
 
 
 

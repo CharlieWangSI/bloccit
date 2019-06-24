@@ -14,14 +14,10 @@ module.exports = {
 
     },
 
-  getFlair(name, callback){
-      return Post.findByName(name, {
+  getFlair(id, callback){
 
-//#3
-      include: [{
-        model: Flair,
-        as: "flair"
-      }]
+      return Flair.findOne({where:{id:parseInt(id)}
+
     })
       .then((flair) => {
         callback(null, flair);
@@ -31,11 +27,10 @@ module.exports = {
       })
     },
 
-  deleteFlair(name, callback){
+  deleteFlair(id, callback){
     console.log("deleting Flair");
-    console.log(name);
        return Flair.destroy({
-          where: { name }
+          where: { id }
         })
         .then((deletedRecordsCount) => {
           console.log("deleteFlair")
@@ -47,8 +42,8 @@ module.exports = {
         })
   },
 
-  updateFlair(name, updatedFlair, callback){
-     return Flair.findByName(name)
+  updateFlair(id, updatedFlair, callback){
+     return Flair.findOne({where:{id}})
      .then((flair) => {
        if(!flair){
          return callback("Flair not found");

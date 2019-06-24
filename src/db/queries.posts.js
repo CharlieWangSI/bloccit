@@ -1,5 +1,6 @@
 const Post = require("./models").Post;
 const Topic = require("./models").Topic;
+const Flair = require("./models").Flair;
 
 module.exports = {
   addPost(newPost, callback){
@@ -19,7 +20,7 @@ module.exports = {
 //#3
       include: [{
         model: Flair,
-        as: "flair"
+        as: "flairs"
       }]
     })
       .then((post) => {

@@ -1,8 +1,8 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('flairs', {
-      flairId: {
+    return queryInterface.createTable('Flairs', {
+      id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -37,6 +37,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('flairs');
+    return queryInterface.dropTable('Flairs');
   }
 };
