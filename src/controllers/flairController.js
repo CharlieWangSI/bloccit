@@ -68,7 +68,9 @@ module.exports = {
        if(err || flair == null){
          res.redirect(404, `/topics/${req.params.topicId}/posts/${req.params.postId}/flairs/${req.params.id}/edit`);
        } else {
-         res.redirect(`/topics/${req.params.topicId}/posts/${req.params.id}/flairs/${req.params.id}`);
+         Post.findOne({where: {id: req.params.postId}}).then((post)=>{
+           res.render("flairs/show", {flair,post});
+         });
        }
      });
    }
